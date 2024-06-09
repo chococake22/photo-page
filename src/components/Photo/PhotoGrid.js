@@ -16,13 +16,18 @@ export default React.memo(PhotoGrid);
 const PhotoDetail = (props) => {
   return (
     <div
-      className="w-full border-2 border-black"
+      className="w-full h-90 pb-2"
       key={props.item.id}
       onClick={() => props.onClick(props.item.id)}
     >
       <div>
-        <div className="flex flex-row justify-between">
-          <p className="p-2 hover:font-bold">{props.item.name}</p>
+        <div className="w-full flex inline-flex">
+          <div className="w-[10%] h-90 flex items-center">
+            <img src={props.item.profileUrl} className="p-1 w-[100%] h-[100%] object-cover rounded-full" />
+          </div>
+          <div className="w-[65%]">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl p-2 hover:font-bold">{props.item.name}</p>
+          </div>
           <FollowButton />
         </div>
         <img src={props.item.url} className="w-full h-[80%]" />
@@ -41,7 +46,7 @@ export { PhotoDetail };
 
 const FollowButton = (props) => {
   return (
-    <div className="p-2">
+    <div className="w-[25%] flex items-center place-content-center">
       <Button color="blue" size="sm">팔로우</Button>
     </div>
   );
