@@ -1,6 +1,6 @@
 "use client";
 import PhotoGrid from "@/components/Photo/PhotoGrid";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 
 // 리랜더링의 조건
 // state의 변경
@@ -10,8 +10,18 @@ function Photo(props) {
   const [images, setImages] = useState([]);
   const [state, setState] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [render, setRender] = useState(0)
+  const [count, setCount] = useState(1);
+
+  const renderCount = useRef(1);
+
+  const countRef = useRef(0);
+
+  console.log(countRef);
 
   const value = { a: 3 };
+
+  let countVar = 0;
 
   const memoizationValue = useMemo(() => {
     return value;
@@ -56,9 +66,10 @@ function Photo(props) {
     return <div>이미지가 없습니다.</div>;
   }
 
+
   return (
     <div className="flex justify-center">
-      <div className="pt-4 w-[60%] ">
+       <div className="pt-4 w-[60%] ">
         <div className="flex justify-center w-[100%] ">
           <div className="flex justify-center w-full border-2">
             <div className="w-full border-black">
@@ -70,7 +81,7 @@ function Photo(props) {
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 }

@@ -12,7 +12,7 @@
 
 ## 빌드
 
-- npm build
+- npm run build
 
 ## 운영 환경 실행
 
