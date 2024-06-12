@@ -40,7 +40,7 @@ const PhotoDetail = (props) => {
           </div>
           {/* <input ref={inputRef} />
           <button onClick={focus}>집중</button> */}
-            <ImageBig ref={inputRef} type={"aagsdg"} />
+            <ImageBig ref={inputRef} type={"aagsdg"} url={props.item.url} />
           <div className="w-[65%]">
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl p-2 hover:font-bold">{props.item.name}</p>
           </div>
@@ -88,6 +88,8 @@ const ImageBig = forwardRef( (props, ref) => {
 
   const [modalOpen, setModalOpen] = useState(false);
 
+  console.log(props.url)
+
   useImperativeHandle(ref, () => ({
     openModal, closeModal
   }));
@@ -105,7 +107,7 @@ const ImageBig = forwardRef( (props, ref) => {
   
   return (
     <div>
-      {modalOpen && <img src="/img/heart-red.png" className="w-100 h-100"/>}
+      {modalOpen && <img src={props.url} className="w-100 h-100"/>}
     </div>
   )
 });
