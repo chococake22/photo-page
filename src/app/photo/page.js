@@ -68,20 +68,22 @@ function Photo(props) {
 
 
   return (
-    <div className="flex justify-center">
-       <div className="pt-4 w-[60%] ">
-        <div className="flex justify-center w-[100%] ">
-          <div className="flex justify-center w-full border-2">
-            <div className="w-full border-black">
-              <PhotoGrid
-                images={images}
-                onClick={memoizationCallback}
-                value={memoizationValue}
-              />
+    <div className="">    
+      <div className="flex justify-center">
+        <div className="pt-4 w-[60%] ">
+          <div className="flex justify-center w-[100%] ">
+            <div className="flex justify-center w-full">
+              <div className="w-full">
+                <PhotoGrid
+                  images={images}
+                  onClick={memoizationCallback}
+                  value={memoizationValue}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </div> 
+        </div> 
+      </div>
     </div>
   );
 }
