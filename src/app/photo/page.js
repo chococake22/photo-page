@@ -1,5 +1,5 @@
 "use client";
-import PhotoGrid from "@/components/Photo/PhotoGrid";
+import PhotoGrid, { BottomMenu } from "@/components/Photo/PhotoGrid";
 import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 
 // 리랜더링의 조건
@@ -69,16 +69,17 @@ function Photo(props) {
 
   return (
     <div className="">    
-      <div className="flex justify-center">
-        <div className="pt-4 w-[60%] ">
+      <div className="flex justify-center bg-slate-100">
+        <div className="w-[60%] bg-white">
           <div className="flex justify-center w-[100%] ">
-            <div className="flex justify-center w-full">
+            <div className="flex justify-center w-full z-0">
               <div className="w-full">
                 <PhotoGrid
                   images={images}
                   onClick={memoizationCallback}
                   value={memoizationValue}
                 />
+                <BottomMenu />
               </div>
             </div>
           </div>

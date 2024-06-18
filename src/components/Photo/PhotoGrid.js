@@ -3,7 +3,7 @@ import { Button } from "@material-tailwind/react";
 
 const PhotoGrid = (props) => {
   return (
-    <div className="grid grid-cols-1 flex flex-row">
+    <div className="grid grid-cols-1 flex flex-row z-0">
       {props.images.map((list, index) => (
         <PhotoBox item={list} key={list.id} onClick={props.onClick} />
       ))}
@@ -28,11 +28,11 @@ const PhotoBox = (props) => {
 
   return (
     <div
-      className="w-full h-90"
+      className="w-full h-[60%] border-y"
       key={props.item.id}
       onClick={() => props.onClick(props.item.id)}
     >
-      <div className="border-y">
+      <div>
         <div className="w-full flex inline-flex">
           <div className="w-[14%] h-[70%] flex items-center place-self-center">
             <img src={props.item.profileUrl} className="p-1 w-[100%] h-[100%] object-cover rounded-full" />
@@ -206,3 +206,46 @@ const ShareButton = (props) => {
 };
 
 export { ShareButton };
+
+
+const BottomMenu = (props) => {
+
+
+  const [clicked, setClicked] = useState(false);
+
+  const click = () => {
+
+    if(!clicked) {
+      setClicked(true)
+    } else {
+      setClicked(false)
+    }
+
+  }
+
+  return (
+    <div className="w-full h-[50px]">
+      <div className="relative">
+        <div className="w-[60%] h-[40px] border-t border-gray fixed bottom-0 bg-white flex flex-row justify-around place-items-center">
+          <div>
+            <img src="/img/heart-blank.png" className="w-5 h-5" />
+          </div>
+          <div>
+            <img src="/img/heart-blank.png" className="w-5 h-5" />
+          </div>
+          <div>
+            <img src="/img/heart-blank.png" className="w-5 h-5" />
+          </div>
+          <div>
+            <img src="/img/heart-blank.png" className="w-5 h-5" />
+          </div>
+          <div>
+            <img src="/img/heart-blank.png" className="w-5 h-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export { BottomMenu };
